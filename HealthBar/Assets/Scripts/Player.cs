@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,52 +8,49 @@ public class Player : MonoBehaviour
     [SerializeField] private float _health;
     [SerializeField] private float _heal;
     [SerializeField] private float _damage;
+    [SerializeField] private TMP_Text _hit;
+    [SerializeField] private Canvas _canvas;
 
-    private float _maxHealth = 100;
-    private float _minHealth = 0;
+    public readonly float _maxHealth = 100;
+    private readonly float _minHealth = 0;
 
-    private bool _isHeal = false;
-    private bool _isDamage = false;
+    public float _currHealth { get; private set; }
+
+    private void FixedUpdate()
+    {
+        _currHealth = _health;
+    }
 
     public void TakeHeal()
     {
-        _isHeal = true;
-
         if ((_health + _heal) < _maxHealth)
         {
             _health += _heal;
+            InstantiateHit(_heal, Color.green, '+');
         }
         else
         {
             _health = _maxHealth;
         }
-
-        Debug.Log("Health = " +  _health);
     }
 
     public void TakeDamage()
     {
-        _isDamage = true;
-
-        if((_health - _damage) > _minHealth)
+        if ((_health - _damage) > _minHealth)
         {
             _health -= _damage;
+            InstantiateHit(_damage, Color.red, '-');
         }
         else
         {
             _health = _minHealth;
         }
-
-        Debug.Log("Health = " +  _health);
     }
 
-    public float GetHealth()
+    private void InstantiateHit(float hit, Color color, char symbol)
     {
-       return _health;
-    }
-
-    public float GetMaxHealth()
-    {
-        return _maxHealth;
+        _hit.text = hit.ToString() + symbol;
+        _hit.color = color;
+        Instantiate(_hit, _canvas.transform);
     }
 }

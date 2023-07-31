@@ -17,17 +17,16 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        _player = GetComponent<Player>();
         _slider = GetComponent<Slider>();
-        _text = GetComponent<TMP_Text>();
     }
 
     private void FixedUpdate()
     {
-         _health = _player.GetHealth();
-        _maxHealth = _player.GetMaxHealth();
+         _health = _player._currHealth;
+        _maxHealth = _player._maxHealth;
 
         _slider.value = Mathf.MoveTowards(_slider.value, _health / _maxHealth, _time * Time.deltaTime);
+
         ShowHealth(_health);
     }
 
