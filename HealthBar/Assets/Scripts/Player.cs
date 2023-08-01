@@ -11,31 +11,39 @@ public class Player : MonoBehaviour
     [SerializeField] private TMP_Text _hit;
     [SerializeField] private Canvas _canvas;
 
-    public readonly float _maxHealth = 100;
+    public readonly float MaxHealth = 100;
     private readonly float _minHealth = 0;
 
-    public float _currHealth { get; private set; }
+    public bool IsHealth { get; private set; }
+    public bool IsDamage { get; private set; }
+    public float CurrHealth { get; private set; }
 
-    private void FixedUpdate()
+    private void Awake()
     {
-        _currHealth = _health;
+        CurrHealth = _health;
     }
 
     public void TakeHeal()
     {
-        if ((_health + _heal) < _maxHealth)
+        IsHealth = true;
+
+        if ((_health + _heal) < MaxHealth)
         {
             _health += _heal;
             InstantiateHit(_heal, Color.green, '+');
         }
         else
         {
-            _health = _maxHealth;
+            _health = MaxHealth;
         }
+
+        CurrHealth = _health;
     }
 
     public void TakeDamage()
     {
+        IsDamage = true;
+
         if ((_health - _damage) > _minHealth)
         {
             _health -= _damage;
@@ -45,6 +53,8 @@ public class Player : MonoBehaviour
         {
             _health = _minHealth;
         }
+
+        CurrHealth = _health;
     }
 
     private void InstantiateHit(float hit, Color color, char symbol)
