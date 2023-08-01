@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5209399799717593543}
   - component: {fileID: 5209399799717593542}
   - component: {fileID: 5209399799717593541}
-  - component: {fileID: -7658233159600664576}
+  - component: {fileID: -3228120373374722073}
   m_Layer: 5
   m_Name: hitPoint
   m_TagString: Untagged
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10+
+  m_text: 15-
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278255360
-  m_fontColor: {r: 0, g: 1, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -157,7 +157,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &-7658233159600664576
+--- !u!114 &-3228120373374722073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,6 +166,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5209399799717593537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06281da5559323e4993dedbd4f72ed7e, type: 3}
+  m_Script: {fileID: 11500000, guid: f3d4ff6efb76bd7449c1e3e5bf35c37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

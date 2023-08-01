@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
     public readonly float MaxHealth = 100;
     private readonly float _minHealth = 0;
 
-    public bool IsHealth { get; private set; }
-    public bool IsDamage { get; private set; }
     public float CurrHealth { get; private set; }
 
     private void Awake()
@@ -25,16 +23,11 @@ public class Player : MonoBehaviour
 
     public void TakeHeal()
     {
-        IsHealth = true;
+        _health = Mathf.Clamp(_health += _heal, _minHealth, MaxHealth);
 
-        if ((_health + _heal) < MaxHealth)
+        if (_health > CurrHealth)
         {
-            _health += _heal;
             InstantiateHit(_heal, Color.green, '+');
-        }
-        else
-        {
-            _health = MaxHealth;
         }
 
         CurrHealth = _health;
@@ -42,16 +35,11 @@ public class Player : MonoBehaviour
 
     public void TakeDamage()
     {
-        IsDamage = true;
+        _health = Mathf.Clamp(_health -= _damage, _minHealth, MaxHealth);
 
-        if ((_health - _damage) > _minHealth)
+        if (_health < CurrHealth)
         {
-            _health -= _damage;
             InstantiateHit(_damage, Color.red, '-');
-        }
-        else
-        {
-            _health = _minHealth;
         }
 
         CurrHealth = _health;

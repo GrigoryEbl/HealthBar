@@ -396,7 +396,7 @@ AnimationClip:
   - time: 1
     functionName: DestroyText
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 06281da5559323e4993dedbd4f72ed7e, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: f3d4ff6efb76bd7449c1e3e5bf35c37c, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

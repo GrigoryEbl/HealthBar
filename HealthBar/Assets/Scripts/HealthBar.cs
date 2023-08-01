@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,8 +9,8 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Player _player;
+    [SerializeField] private float _time;
 
-    private float _time = 0.3f;
     private string _healthPointName = "HP";
 
     private void Awake()
@@ -21,25 +20,25 @@ public class HealthBar : MonoBehaviour
         _slider.value = _player.CurrHealth / _player.MaxHealth;
     }
 
-    private void FixedUpdate()
+    public void StatCoroutine()
     {
-        if(_player.IsHealth || _player.IsDamage)
+        StartCoroutine(ChangeHealth());
+    }
+
+    private IEnumerator ChangeHealth()
+    {
+        ShowHealth(_player.CurrHealth);
+
+        while (_slider.value != _player.CurrHealth / _player.MaxHealth)
         {
-            StartCoroutine(ChangeHealth());
+            _slider.value = Mathf.MoveTowards(_slider.value, _player.CurrHealth / _player.MaxHealth, _time * Time.deltaTime);
+
+            yield return null;
         }
     }
 
     private void ShowHealth(float value)
     {
         _text.text = value.ToString() + _healthPointName;
-    }
-
-    private IEnumerator ChangeHealth()
-    {
-        _slider.value = Mathf.MoveTowards(_slider.value, _player.CurrHealth / _player.MaxHealth, _time * Time.deltaTime);
-
-        ShowHealth(_player.CurrHealth);
-
-        yield return null;
     }
 }
