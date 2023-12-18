@@ -265,6 +265,7 @@ MonoBehaviour:
   _damage: 15
   _hit: {fileID: 5209399799717593542, guid: a5a8f2b566bd87c419eeb42de4184e49, type: 3}
   _canvas: {fileID: 996162288}
+  _healthBar: {fileID: 1708869099}
 --- !u!1 &176519091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,18 +1015,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1708869099}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: StatCoroutine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &895107778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,18 +1617,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1708869099}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: StatCoroutine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1176217510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,7 +2056,7 @@ MonoBehaviour:
   _slider: {fileID: 1708869098}
   _text: {fileID: 176519093}
   _player: {fileID: 144600217}
-  _time: 0.3
+  _time: 0.5
 --- !u!1 &1975880352
 GameObject:
   m_ObjectHideFlags: 0

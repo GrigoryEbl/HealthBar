@@ -10,9 +10,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private TMP_Text _hit;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private HealthBar _healthBar;
 
     public readonly float MaxHealth = 100;
     private readonly float _minHealth = 0;
+
 
     public float CurrHealth { get; private set; }
 
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour
         }
 
         CurrHealth = _health;
+
+        _healthBar.StartCoroutine(_healthBar.ChangeHealth());
     }
 
     public void TakeDamage()
@@ -43,6 +47,8 @@ public class Player : MonoBehaviour
         }
 
         CurrHealth = _health;
+
+        _healthBar.StartCoroutine(_healthBar.ChangeHealth());
     }
 
     private void InstantiateHit(float hit, Color color, char symbol)

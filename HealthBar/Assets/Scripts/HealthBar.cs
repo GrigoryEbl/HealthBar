@@ -20,12 +20,7 @@ public class HealthBar : MonoBehaviour
         _slider.value = _player.CurrHealth / _player.MaxHealth;
     }
 
-    public void StatCoroutine()
-    {
-        StartCoroutine(ChangeHealth());
-    }
-
-    private IEnumerator ChangeHealth()
+    public IEnumerator ChangeHealth()
     {
         ShowHealth(_player.CurrHealth);
 
